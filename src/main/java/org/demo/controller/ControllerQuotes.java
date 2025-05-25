@@ -1,21 +1,30 @@
 package org.demo.controller;
 
+
 import org.demo.model.Quotes;
+import org.demo.repository.RepositoryQuotes;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController  //the anotation who telling as this is class controller
-@RequestMapping("api/quotes")
+@RestController
+@RequestMapping
 public class ControllerQuotes {
 
+    @Autowired
+    private RepositoryQuotes repositoryQuotes;
+
     @GetMapping
-    public List<Quotes> getAllQuotes() {
-        return Quotes();
+    public List<Quotes> getAllQuotes (){
+
+        return repositoryQuotes.findAll();
+
     }
 
+    @PostMapping
+    public Quotes crateQuotes(@RequestBody Quotes quotes) {
+        return repositoryQuotes.save(quotes);
+    }
 
 }
