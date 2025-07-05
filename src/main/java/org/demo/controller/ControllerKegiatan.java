@@ -1,10 +1,8 @@
 package org.demo.controller;
 
 
-import org.demo.model.Kegiatan;
-import org.demo.model.Quotes;
+import org.demo.model.KegiatanModel;
 import org.demo.repository.RepositoryKegiatan;
-import org.demo.repository.RepositoryQuotes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +17,12 @@ public class ControllerKegiatan {
 
 //    this the function get all quotes
     @GetMapping
-    public List<Kegiatan> getAllQuotes(){
+    public List<KegiatanModel> getAllQuotes(){
         return repositoryKegiatan.findAll();
     }
 
     @PostMapping
-    public Kegiatan createKegiatan(@RequestBody Kegiatan kegiatan){
+    public KegiatanModel createKegiatan(@RequestBody KegiatanModel kegiatan){
         return repositoryKegiatan.save(kegiatan);
     }
 }
