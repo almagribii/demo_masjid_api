@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 
-public class KegiatanModel {
+public class Kegiatan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

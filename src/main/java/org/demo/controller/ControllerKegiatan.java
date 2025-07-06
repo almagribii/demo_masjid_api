@@ -1,7 +1,7 @@
 package org.demo.controller;
 
 
-import org.demo.model.KegiatanModel;
+import org.demo.model.Kegiatan;
 import org.demo.repository.RepositoryKegiatan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +17,12 @@ public class ControllerKegiatan {
 
 //    this the function get all quotes
     @GetMapping
-    public List<KegiatanModel> getAllQuotes(){
+    public List<Kegiatan> getAllQuotes(){
         return repositoryKegiatan.findAll();
     }
 
     @PostMapping
-    public KegiatanModel createKegiatan(@RequestBody KegiatanModel kegiatan){
+    public Kegiatan createKegiatan(@RequestBody Kegiatan kegiatan){
         return repositoryKegiatan.save(kegiatan);
     }
 }
